@@ -1,3 +1,6 @@
+import com.conbnk.genericlib.BaseClass;
+import org.testng.annotations.Test;
+
 public class TestScenario1 extends BaseClass {
   
     @Test

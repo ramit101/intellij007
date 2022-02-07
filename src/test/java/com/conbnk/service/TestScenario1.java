@@ -12,7 +12,7 @@ import java.util.*;
 import static java.util.Collections.sort;
 
 public class TestScenario1 extends BaseClass {
-   // String [] str;
+  
     @Test
     public void test1(){
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
@@ -23,9 +23,7 @@ public class TestScenario1 extends BaseClass {
                 (driver.getCurrentUrl(),"https://www.saucedemo.com/inventory.html","Expected page loaded");
 
         List<WebElement> ele = driver.findElements(By.xpath("//div[@class='inventory_item_price']"));
-        ArrayList al=new ArrayList();
-      // TreeSet al = new TreeSet();
-      // LinkedList al = new LinkedList();
+        ArrayList al=new ArrayList();   
 
         for(WebElement element : ele){
             String [] str = element.getText().split("$");

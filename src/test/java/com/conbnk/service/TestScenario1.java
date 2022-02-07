@@ -20,7 +20,7 @@ public class TestScenario1 extends BaseClass {
         driver.findElement(By.id("login-button")).click();
 
         Assert.assertEquals
-                (driver.getCurrentUrl(),"https://www.saucedemo.com/inventory.html","Expected page loaded");
+                (driver.getCurrentUrl(),"https://www.saucedemo.com/inventory.html");
 
         List<WebElement> ele = driver.findElements(By.xpath("//div[@class='inventory_item_price']"));
         ArrayList al=new ArrayList();

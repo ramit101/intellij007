@@ -1,4 +1,4 @@
-public class TestScenario1 extends BaseClass {
+public class TestScenario2 extends BaseClass {
   
     @Test
     public void test2(){

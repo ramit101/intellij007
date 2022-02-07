@@ -6,15 +6,18 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.List;
 import java.util.*;
 
 import static java.util.Collections.sort;
 
 public class TestScenario1 extends BaseClass {
-   // String [] str;
+    Number num;
+
     @Test
-    public void test1(){
+    public void test1() throws ParseException {
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.id("login-button")).click();
@@ -24,15 +27,14 @@ public class TestScenario1 extends BaseClass {
 
         List<WebElement> ele = driver.findElements(By.xpath("//div[@class='inventory_item_price']"));
         ArrayList al=new ArrayList();
-      // TreeSet al = new TreeSet();
-      // LinkedList al = new LinkedList();
 
         for(WebElement element : ele){
-            String [] str = element.getText().split("$");
-            System.out.println(str.toString());
-
-         //  al.add(element.getText().split("$")) ;
+          Locale locale = Locale.US;
+          num = NumberFormat.getCurrencyInstance(locale).parse(element.getText());
+          al.add(num);
         }
-      //  Collections.sort(al);
+        System.out.println(Collections.max(al));
+        System.out.println(Collections.min(al));
+        System.out.println(al);
     }
 }

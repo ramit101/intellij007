@@ -14,10 +14,8 @@ import java.util.*;
 import static java.util.Collections.sort;
 
 public class TestScenario1 extends BaseClass {
-    Number num;
-
     @Test
-    public void test1() throws ParseException {
+    public void test1()  {
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.id("login-button")).click();
@@ -27,14 +25,20 @@ public class TestScenario1 extends BaseClass {
 
         List<WebElement> ele = driver.findElements(By.xpath("//div[@class='inventory_item_price']"));
         ArrayList al=new ArrayList();
+        double pricedouble = 0.0d;
 
         for(WebElement element : ele){
-          Locale locale = Locale.US;
-          num = NumberFormat.getCurrencyInstance(locale).parse(element.getText());
-          al.add(num);
+           Double price = Double.parseDouble(element.getText().trim().replace("$",""));
+           al.add(price);
+
+            if(pricedouble < price){
+              pricedouble = price;
+            }
         }
         System.out.println(Collections.max(al));
         System.out.println(Collections.min(al));
         System.out.println(al);
+        System.out.println(pricedouble);
+        driver.findElement(By.xpath("//div[text()='"+ pricedouble +"']")).click();
     }
 }

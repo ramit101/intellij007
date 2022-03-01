@@ -6,15 +6,16 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.List;
 import java.util.*;
 
 import static java.util.Collections.sort;
 
 public class TestScenario1 extends BaseClass {
-   // String [] str;
     @Test
-    public void test1(){
+    public void test1()  {
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.id("login-button")).click();
@@ -24,15 +25,20 @@ public class TestScenario1 extends BaseClass {
 
         List<WebElement> ele = driver.findElements(By.xpath("//div[@class='inventory_item_price']"));
         ArrayList al=new ArrayList();
-      // TreeSet al = new TreeSet();
-      // LinkedList al = new LinkedList();
+        double pricedouble = 0.0d;
 
         for(WebElement element : ele){
-            String [] str = element.getText().split("$");
-            System.out.println(str.toString());
+           Double price = Double.parseDouble(element.getText().trim().replace("$",""));
+           al.add(price);
 
-         //  al.add(element.getText().split("$")) ;
+            if(pricedouble < price){
+              pricedouble = price;
+            }
         }
-      //  Collections.sort(al);
+        System.out.println(Collections.max(al));
+        System.out.println(Collections.min(al));
+        System.out.println(al);
+        System.out.println(pricedouble);
+        driver.findElement(By.xpath("//div[text()='"+ pricedouble +"']")).click();
     }
 }

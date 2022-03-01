@@ -12,7 +12,7 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class DemoClass {
-    /*@Test
+    @Test
     public void test1(){
         WebDriverManager.chromedriver().setup();
         WebDriver driver=new ChromeDriver();
@@ -20,9 +20,9 @@ public class DemoClass {
         driver.get("https://www.google.com");
         driver.findElement(By.xpath("//input[@class='gLFyf gsfi']")).sendKeys("amitranjan");
         driver.findElement(By.xpath("//input[@class='gNO89b']")).click();
-    }*/
+    }
 
-    /*@Test
+    @Test
     public void test2(){
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
@@ -34,14 +34,14 @@ public class DemoClass {
                 eleme.click();
             }
         }
-    }*/
+    }
 
-    /*@Test
+    @Test
     public void test3(){
         StringBuilder str=new StringBuilder("amit ranjan");
         str.replace(4,5,"");
         System.out.print(str);
-    }*/
+    }
 
     @Test
     public void test3(){
@@ -53,5 +53,4 @@ public class DemoClass {
         }
         System.out.println(r);
     }
-
 }

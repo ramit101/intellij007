@@ -44,7 +44,7 @@ public class DemoClass {
     }
 
     @Test
-    public void test3(){
+    public void test31(){
         String str = "amit ranjan";
         String r="";
         Scanner sc = new Scanner(str);

@@ -17,8 +17,11 @@ public class BaseClass {
     @BeforeMethod
     public void configBM(){
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
         //driver.get("https://selectorshub.com/xpath-practice-page/");
-        driver.get("https://www.saucedemo.com/");
+        //driver.get("https://www.saucedemo.com/");
+
+        driver.get("https://aquabottesting.com/");
     }
     @AfterMethod
     public void configAM(){
